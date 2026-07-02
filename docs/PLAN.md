@@ -3,9 +3,9 @@
 *Arbejdstitel: **Prisma**. Original dansk web‑platform inspireret af styrkerne fra Brilliant.org (konceptuel, visuel, interaktiv læring) og MatematikFessor (træning, opgaver, autoretning, lærer‑dashboard) — men et selvstændigt produkt, ikke en kopi af indhold, brand, interface eller lukkede systemer.*
 
 **Målgruppe:** grundskolen ca. 5.–9. klasse + gymnasiet. **Fag:** Matematik, Fysik, Kemi, Biologi, Geografi.
-**Forfatter‑kontekst:** dansk folkeskolelærer. **Status i repo:** der findes allerede en fungerende prototype (`MatematikAppV2`) med adaptiv opgavemotor, som denne plan bygger videre på (se §7 og §11).
+**Forfatter‑kontekst:** dansk folkeskolelærer. **Status i repo:** der findes allerede en fungerende prototype (`MatematikAppV2`) med adaptiv opgavemotor, som denne plan bygger videre på (se §7
 
-> **Læsevejledning.** Dokumentet følger de 11 punkter fra opgaven. §1–§3 er analyse og koncept. §4–§6 er produktdesign. §7–§10 er teknisk specifikation. §11 er en konkret build‑roadmap. Kildehenvisninger står nederst.
+> **Læsevejledning.** Dokumentet følger de 11 punkter fra opgaven. §1–§3 er analyse og koncept. §4–§6 er produktdesign. §7–§10 er teknisk specifikation. Kildehenvisninger står nederst.
 
 ---
 
