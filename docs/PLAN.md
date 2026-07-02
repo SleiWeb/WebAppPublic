@@ -277,35 +277,6 @@ Alle deler den fælles motor (§7/§9); kun render‑ og validator‑delen er fa
 
 Fælles primitiver der går igen: **number/text‑input, MCQ, ordering, drag‑drop‑placering, slider‑sim, graf‑aflæsning, mærkning, matching, afstemning/balancering**. Ved at implementere disse ~10 primitiver dækkes alle fem fag — hjørnestenen i at kunne skalere bredt uden at genopfinde motoren pr. fag.
 
----
-
-## 11. Build‑roadmap
-
-*Bygger på den eksisterende matematik‑prototype. Hver fase har et konkret leverbart output.*
-
-**Uge 0 — Research/specifikation (1 uge)**
-Låse scope for MVP; vælge 1 matematik‑ + 1 naturfags‑modul til vertikal skive; specificere de ~10 interaktions‑primitiver (§10); Fælles Mål‑tagging‑skema; Unilogin‑ og databehandleraftale‑afklaring med STIL; teknisk beslutning backend + DB. *Output: kort PRD + skema (§8/§9) + wireframes for forside/dashboards.*
-
-**Uge 1–2 — Prototype‑sprint (2 uger)**
-Udvid eksisterende prototype: forside med **fem fagkort**; content‑block‑renderer; 3 nye interaktions‑primitiver (fx MCQ, slider‑sim, mærkning) ud over de eksisterende math‑typer; én komplet fysik‑lektion end‑to‑end (forklaring→sim→øvelse→autoretning). *Output: klikbar prototype på tværs af 2 fag.*
-
-**Uge 3–8 — MVP‑sprint (6 uger)**
-Backend + PostgreSQL (migrér progress fra localStorage); roller (elev/lærer); Unilogin‑login; lærer‑dashboard v1 (klasseoverblik + tildel opgave + frist); serverside svar‑validering; misforståelses‑diagnose v1; 1 fuldt matematik‑modul + 1 fysik‑modul med Fælles Mål‑tags; tilgængelighed (TTS, dysleksi‑typografi). *Output: MVP en enkelt klasse kan bruge.*
-
-**Måned 3–4 — Pilot‑version (≈3 måneder)**
-Kemi + geografi‑modul (2 fag mere → 4 i alt); adaptiv repetition serverside; lærer‑indsigt v2 (misforståelses‑panel, elev‑drilldown); assignments‑workflow komplet; databehandleraftale + EU‑hosting + DPIA‑dokumentation klar; onboarding‑flow for lærere. *Output: pilotklar platform, 4–5 fag i bredde (om end få moduler pr. fag).*
-
-**Første klassetest**
-Kør med forfatterens egen klasse + 1–2 kollega‑klasser; mål: brugbarhed, autoretnings‑kvalitet, motivationseffekt, lærertids‑besparelse. Indsamle kvalitativ + kvantitativ (attempts/mestring/tid) feedback. Iterér indhold og hints ud fra reelle misforståelses‑data.
-
-**Hostet beta**
-Offentlig, Unilogin‑indlogget beta for udvalgte skoler; gratis lærer‑lag (land‑and‑expand); telemetri/observability; support‑ og feedback‑loop; hærdet sikkerhed/privatliv. Prissætnings‑ og skolelicens‑model testes.
-
-**Langsigtet platform‑roadmap**
-Biologi i fuld bredde; gymnasie‑niveau i alle fag; forfatterværktøj så lærere/forlag selv laver indhold; AI‑tutor (dansk, stilladserende — ikke svar‑afslørende, privatlivs‑sikker); klasse‑live‑tilstand; forældre‑view; åbne standarder (QTI/xAPI) og Aula/LMS‑integration; kommunale rammeaftaler; effekt‑dokumentation/forskningssamarbejde; skalering til flere fag/klassetrin.
-
----
-
 ## Kilder
 
 - MatematikFessor / Alinea: [matematikfessor.dk](https://www.matematikfessor.dk/), [teacher dashboard](https://www.matematikfessor.dk/dashboard-teacher), [Alinea produktside](https://www.alinea.dk/matematik/grundsystemer-og-portal/produkt/matematikfessor)
