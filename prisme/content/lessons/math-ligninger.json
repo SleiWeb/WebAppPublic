@@ -1,0 +1,77 @@
+{
+  "id": "math-ligninger",
+  "subject": "math",
+  "course": "math-grundskole-79",
+  "module": "ligninger",
+  "title": "Ligninger: Balanceprincippet",
+  "estMinutes": 15,
+  "learningGoals": [
+    "Jeg kan forklare, hvorfor man skal gøre det samme på begge sider af lighedstegnet",
+    "Jeg kan løse ligninger af typen ax + b = c"
+  ],
+  "curriculumLinks": [
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "goalType": "faerdigheds_videns", "code": "MA-9-LIGN", "binding": false },
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "goalType": "kompetencemaal", "code": "MA-9-TAL-ALG", "binding": true }
+  ],
+  "knowledgeComponents": ["MATH.LIGN.BALANCE", "MATH.LIGN.LOES_AX_B", "MATH.ALG.REDUKTION"],
+  "teacherNotes": "Fortegnsfejl ved flytning af led (M-LIGN-FORTEGNSFEJL) er den hyppigste fejl i klassen — dashboardet viser andelen. Grafisk løsning med graf-widgetten giver eleverne et billede af, HVAD løsningen er, før metoden automatiseres.",
+  "blocks": [
+    {
+      "type": "text",
+      "body": "En ligning siger: **de to sider er lige store**. $2x + 1 = 7$ betyder: \"et tal ganget med 2, plus 1, giver 7\".\n\nAt løse ligningen vil sige at finde tallet. Se det grafisk 👇",
+      "readingLevel": "enkel"
+    },
+    {
+      "type": "widget",
+      "widgetType": "graph-plotter",
+      "params": {
+        "a": { "min": 1, "max": 4, "default": 2, "step": 1, "label": "a" },
+        "b": { "min": 0, "max": 5, "default": 1, "step": 1, "label": "b" },
+        "c": { "min": 1, "max": 12, "default": 7, "step": 1, "label": "c" }
+      },
+      "render": { "expr": "a*x + b", "hline": "c", "domain": [-1, 8], "range": [-1, 14], "showIntersection": true },
+      "interactions": ["dragSlider:a", "dragSlider:b", "dragSlider:c"],
+      "readout": ["intersection"],
+      "emits": ["a", "b", "c"],
+      "prompt": "Linjen er venstre side ($ax + b$), den vandrette linje er højre side ($c$). Krydset er løsningen! Træk i skyderne: hvad sker der med løsningen, når $c$ vokser?"
+    },
+    {
+      "type": "text",
+      "body": "En ligning er som en **vægt i balance**. Gør du noget ved den ene side, skal du gøre præcis det samme ved den anden — ellers tipper den.\n\nDet kaldes **balanceprincippet**, og det er hele hemmeligheden bag at løse ligninger."
+    },
+    {
+      "type": "workedExample",
+      "title": "Sådan gør du: løs 3x + 5 = 17",
+      "steps": [
+        "**Fjern $+5$:** træk 5 fra på begge sider: $3x + 5 - 5 = 17 - 5$, altså $3x = 12$.",
+        "**Fjern 3-tallet:** $3x$ betyder 3 gange $x$, så dividér begge sider med 3: $x = \\dfrac{12}{3}$.",
+        "**Løsningen:** $x = 4$. Tjek: $3 \\cdot 4 + 5 = 17$ ✓"
+      ],
+      "fade": true
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lign-naeste-skridt",
+      "count": 2
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lign-loes-x",
+      "count": 3
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lign-reducer",
+      "count": 2
+    },
+    {
+      "type": "checkpoint",
+      "templateIds": [
+        "tmpl-lign-naeste-skridt",
+        "tmpl-lign-loes-x",
+        "tmpl-lign-reducer"
+      ],
+      "passRule": { "correctOf": 3, "need": 2 }
+    }
+  ]
+}

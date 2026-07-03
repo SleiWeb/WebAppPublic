@@ -1,0 +1,13 @@
+[
+  { "code": "MATH.BROEK", "subject": "math", "name": "Brøker" },
+  { "code": "MATH.BROEK.FAELLES_NAEVNER", "subject": "math", "name": "Finde fælles nævner", "parent": "MATH.BROEK" },
+  { "code": "MATH.BROEK.ADD_ULIGE_NAEVNER", "subject": "math", "name": "Addere brøker med forskellige nævnere", "parent": "MATH.BROEK" },
+  { "code": "MATH.LIN", "subject": "math", "name": "Lineære funktioner" },
+  { "code": "MATH.LIN.BEREGN_Y", "subject": "math", "name": "Beregne y ud fra forskriften y = ax + b", "parent": "MATH.LIN" },
+  { "code": "MATH.LIN.HAELDNING", "subject": "math", "name": "Bestemme hældningstallet a ud fra to punkter", "parent": "MATH.LIN" },
+  { "code": "MATH.LIN.SKAERING", "subject": "math", "name": "Aflæse skæringen med y-aksen (b)", "parent": "MATH.LIN" },
+  { "code": "MATH.LIGN", "subject": "math", "name": "Ligninger" },
+  { "code": "MATH.LIGN.BALANCE", "subject": "math", "name": "Bruge balanceprincippet (samme på begge sider)", "parent": "MATH.LIGN" },
+  { "code": "MATH.LIGN.LOES_AX_B", "subject": "math", "name": "Løse ligninger af typen ax + b = c", "parent": "MATH.LIGN" },
+  { "code": "MATH.ALG.REDUKTION", "subject": "math", "name": "Reducere simple algebraiske udtryk" }
+]

@@ -1,0 +1,52 @@
+[
+  {
+    "framework": "faelles_maal",
+    "subject": "math",
+    "competenceArea": "tal_og_algebra",
+    "goalType": "kompetencemaal",
+    "code": "MA-9-TAL-ALG",
+    "text": "Eleven kan anvende reelle tal og algebraiske udtryk i matematiske undersøgelser",
+    "gradeSpan": "efter_9",
+    "binding": true
+  },
+  {
+    "framework": "faelles_maal",
+    "subject": "math",
+    "competenceArea": "tal_og_algebra",
+    "goalType": "faerdigheds_videns",
+    "code": "MA-9-BROEK",
+    "text": "Eleven kan udføre beregninger med brøker, herunder addition af brøker med forskellige nævnere",
+    "gradeSpan": "efter_9",
+    "binding": false
+  },
+  {
+    "framework": "faelles_maal",
+    "subject": "math",
+    "competenceArea": "tal_og_algebra",
+    "goalType": "faerdigheds_videns",
+    "code": "MA-9-LIGN",
+    "text": "Eleven kan udvikle metoder til løsning af ligninger",
+    "gradeSpan": "efter_9",
+    "binding": false
+  },
+  {
+    "framework": "faelles_maal",
+    "subject": "math",
+    "competenceArea": "tal_og_algebra",
+    "goalType": "faerdigheds_videns",
+    "code": "MA-9-FUNK",
+    "text": "Eleven kan anvende lineære funktioner til at beskrive sammenhænge og forandringer",
+    "gradeSpan": "efter_9",
+    "binding": false
+  },
+  {
+    "framework": "faelles_maal",
+    "subject": "math",
+    "competenceArea": "modellering",
+    "goalType": "kompetencemaal",
+    "code": "MA-9-MODEL",
+    "text": "Eleven kan afgrænse problemer fra omverdenen i forbindelse med opstilling af en matematisk model",
+    "gradeSpan": "efter_9",
+    "binding": true
+  }
+]

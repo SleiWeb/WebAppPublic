@@ -1,0 +1,159 @@
+[
+  {
+    "id": "tmpl-lin-beregn-y",
+    "subject": "math",
+    "title": "Beregn y ud fra forskriften",
+    "difficulty": 1,
+    "knowledgeComponents": ["MATH.LIN.BEREGN_Y"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-FUNK" }
+    ],
+    "variables": {
+      "a": { "type": "int", "min": 2, "max": 5 },
+      "b": { "type": "int", "min": 1, "max": 8 },
+      "x0": { "type": "int", "min": 2, "max": 6 },
+      "y0": { "expr": "a * x0 + b" }
+    },
+    "constraints": ["a != b", "x0 != 1"],
+    "prompt": {
+      "text": "En lineær funktion har forskriften $y = {{a}}x + {{b}}$.\n\nHvad er $y$, når $x = {{x0}}$?"
+    },
+    "answer": {
+      "validator": "numeric",
+      "value": "y0",
+      "tolerance": 0.001
+    },
+    "hints": [
+      { "level": 1, "text": "Hvad betyder det, at $x = {{x0}}$? Hvor i forskriften skal tallet ind?" },
+      { "level": 2, "text": "Sæt {{x0}} ind på x's plads: $y = {{a}} \\cdot {{x0}} + {{b}}$." },
+      { "level": 3, "text": "Gang først: {{a}} · {{x0}}. Læg så {{b}} til." },
+      { "level": 4, "text": "$y = {{a}} \\cdot {{x0}} + {{b}} = {{y0}}$." }
+    ],
+    "distractors": [
+      { "rule": "a + b * x0", "misconception": "M-LIN-BYTTER-A-OG-B" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-LIN-BYTTER-A-OG-B" },
+        "message": "Det ligner, at du byttede om på {{a}} og {{b}}. Det er hældningstallet {{a}}, der skal ganges med x — {{b}} lægges til bagefter." },
+      { "condition": { "correct": true },
+        "message": "Rigtigt! Du satte $x = {{x0}}$ ind og regnede $ {{a}} \\cdot {{x0}} + {{b}} = {{y0}}$." }
+    ],
+    "solution": {
+      "steps": [
+        "Sæt $x = {{x0}}$ ind i forskriften: $y = {{a}} \\cdot {{x0}} + {{b}}$.",
+        "Gang: $ {{a}} \\cdot {{x0}}$.",
+        "Læg {{b}} til: $y = {{y0}}$."
+      ]
+    },
+    "teacherNotes": "Basal indsættelse i forskrift. Distraktoren fanger elever, der bytter om på a og b's roller."
+  },
+  {
+    "id": "tmpl-lin-haeldning",
+    "subject": "math",
+    "title": "Bestem hældningstallet ud fra to punkter",
+    "difficulty": 2,
+    "knowledgeComponents": ["MATH.LIN.HAELDNING"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-FUNK" },
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "modellering", "code": "MA-9-MODEL", "binding": true }
+    ],
+    "variables": {
+      "a": { "type": "int", "min": 2, "max": 5 },
+      "b": { "type": "int", "min": 1, "max": 6 },
+      "x1": { "type": "int", "min": -2, "max": 2 },
+      "dx": { "type": "int", "min": 1, "max": 4 },
+      "x2": { "expr": "x1 + dx" },
+      "y1": { "expr": "a * x1 + b" },
+      "y2": { "expr": "a * x2 + b" },
+      "dy": { "expr": "y2 - y1" }
+    },
+    "constraints": ["a != b"],
+    "prompt": {
+      "text": "En lineær funktion går gennem punkterne $({{x1}},\\; {{y1}})$ og $({{x2}},\\; {{y2}})$.\n\nBestem hældningstallet $a$."
+    },
+    "answer": {
+      "validator": "numeric",
+      "value": "a",
+      "tolerance": 0.001
+    },
+    "hints": [
+      { "level": 1, "text": "Hældningstallet fortæller, hvor meget $y$ vokser, hver gang $x$ vokser med 1." },
+      { "level": 2, "text": "Brug formlen $a = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{y_2 - y_1}{x_2 - x_1}$." },
+      { "level": 3, "text": "$\\Delta y = {{y2}} - {{y1}} = {{dy}}$ og $\\Delta x = {{x2}} - ({{x1}}) = {{dx}}$." },
+      { "level": 4, "text": "$a = \\dfrac{{{dy}}}{{{dx}}} = {{a}}$." }
+    ],
+    "distractors": [
+      { "rule": "(x2 - x1) / (y2 - y1)", "misconception": "M-LIN-HAELDNING-OMVENDT" },
+      { "rule": "b", "misconception": "M-LIN-BYTTER-A-OG-B" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-LIN-HAELDNING-OMVENDT" },
+        "message": "Du delte $\\Delta x$ med $\\Delta y$ — det skal være omvendt. Hældningen er ændringen i y **pr.** ændring i x: $a = \\Delta y / \\Delta x$." },
+      { "condition": { "matchesMisconception": "M-LIN-BYTTER-A-OG-B" },
+        "message": "Det tal er skæringen med y-aksen (b), ikke hældningstallet. Hældningen finder du ud fra, hvor meget y ændrer sig mellem de to punkter." },
+      { "condition": { "correct": true },
+        "message": "Flot! Linjen stiger {{a}} hver gang x vokser med 1." }
+    ],
+    "solution": {
+      "steps": [
+        "Find ændringerne: $\\Delta y = {{y2}} - {{y1}} = {{dy}}$ og $\\Delta x = {{x2}} - ({{x1}}) = {{dx}}$.",
+        "Hældningstallet: $a = \\dfrac{\\Delta y}{\\Delta x} = \\dfrac{{{dy}}}{{{dx}}}$.",
+        "$a = {{a}}$."
+      ]
+    },
+    "teacherNotes": "Δx/Δy-ombytningen er den klassiske fejl her; den udløser målrettet feedback i stedet for blot 'forkert'."
+  },
+  {
+    "id": "tmpl-lin-aflaes-b",
+    "subject": "math",
+    "title": "Klik hvor linjen skærer y-aksen",
+    "difficulty": 1,
+    "knowledgeComponents": ["MATH.LIN.SKAERING"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-FUNK" }
+    ],
+    "variables": {
+      "a": { "pick": [-2, -1, 1, 2, 3] },
+      "b": { "pick": [-4, -3, -2, 2, 3, 4] }
+    },
+    "constraints": [],
+    "prompt": {
+      "text": "Grafen viser linjen $y = {{a}}x + {{b}}$.\n\n**Klik på det punkt, hvor linjen skærer y-aksen.**",
+      "inputWidget": {
+        "widgetType": "graph-plotter",
+        "params": {},
+        "render": { "expr": "{{a}}*x + {{b}}", "domain": [-6, 6], "range": [-6, 6], "mode": "pick-point" },
+        "interactions": ["pickPoint"],
+        "readout": [],
+        "emits": ["point"]
+      }
+    },
+    "answer": {
+      "validator": "point",
+      "x": "0",
+      "y": "b",
+      "tolerance": 0.45
+    },
+    "hints": [
+      { "level": 1, "text": "Hvor på grafen er $x = 0$?" },
+      { "level": 2, "text": "y-aksen er den lodrette akse. Linjen krydser den ét sted." },
+      { "level": 3, "text": "I forskriften $y = {{a}}x + {{b}}$ er det tallet {{b}}, der viser skæringen med y-aksen." },
+      { "level": 4, "text": "Klik på punktet $(0,\\; {{b}})$." }
+    ],
+    "distractors": [],
+    "feedbackRules": [
+      { "condition": { "correct": true },
+        "message": "Rigtigt! Når $x = 0$, er $y = {{b}}$ — derfor kaldes {{b}} også begyndelsesværdien." },
+      { "condition": { "closenessBelow": 0.5 },
+        "message": "Ikke helt. Kig efter det sted, hvor linjen krydser den **lodrette** akse — dér er $x = 0$." }
+    ],
+    "solution": {
+      "steps": [
+        "Skæringen med y-aksen er der, hvor $x = 0$.",
+        "Sæt $x = 0$ ind: $y = {{a}} \\cdot 0 + {{b}} = {{b}}$.",
+        "Punktet er $(0, {{b}})$."
+      ]
+    },
+    "teacherNotes": "Punkt-opgave med graf-widget som svarfelt. God til at koble forskrift og graf visuelt."
+  }
+]

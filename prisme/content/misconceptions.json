@@ -1,0 +1,69 @@
+[
+  {
+    "code": "M-BROEK-ADDERER-NAEVNERE",
+    "subject": "math",
+    "name": "Lægger nævnere sammen ved brøkaddition",
+    "explanation": "Nævneren fortæller, hvor mange lige store dele helheden er delt i — den er en slags \"enhed\". Når to brøker har samme nævner, lægger du kun tællerne sammen; nævneren er stadig den samme. Se brøkerne som længder på brøkstangen: delene skifter ikke størrelse, fordi du lægger dem sammen.",
+    "linkedWidget": "fraction-bar",
+    "remediationLesson": "math-broeker-faelles-naevner"
+  },
+  {
+    "code": "M-BROEK-GLEMMER-AT-FORLAENGE",
+    "subject": "math",
+    "name": "Lægger tællere sammen uden at forlænge brøkerne først",
+    "explanation": "Før du kan lægge brøkerne sammen, skal delene være lige store. Forlæng hver brøk, så begge har den fælles nævner — gang tæller og nævner med det samme tal — og læg først derefter tællerne sammen.",
+    "linkedWidget": "fraction-bar",
+    "remediationLesson": "math-broeker-faelles-naevner"
+  },
+  {
+    "code": "M-BROEK-PRODUKT-IKKE-MINDSTE",
+    "subject": "math",
+    "name": "Bruger produktet af nævnerne i stedet for mindste fælles nævner",
+    "explanation": "At gange nævnerne giver altid en fælles nævner — men ikke altid den mindste. Kig efter det mindste tal, som begge nævnere går op i; så bliver tallene mindre og lettere at regne videre med.",
+    "linkedWidget": "fraction-bar"
+  },
+  {
+    "code": "M-LIN-BYTTER-A-OG-B",
+    "subject": "math",
+    "name": "Bytter om på hældningstal og skæring i y = ax + b",
+    "explanation": "I forskriften y = ax + b er a hældningstallet (hvor stejl linjen er — tallet der ganges på x), og b er skæringen med y-aksen (linjens startpunkt, når x = 0). Prøv skyderne i graf-værktøjet og se, hvad hvert tal gør ved linjen.",
+    "linkedWidget": "graph-plotter",
+    "remediationLesson": "math-lineaere-funktioner"
+  },
+  {
+    "code": "M-LIN-HAELDNING-OMVENDT",
+    "subject": "math",
+    "name": "Regner hældning som Δx/Δy i stedet for Δy/Δx",
+    "explanation": "Hældningstallet fortæller, hvor meget y ændrer sig, hver gang x vokser med 1. Derfor er a = Δy/Δx — ændringen i y delt med ændringen i x, ikke omvendt.",
+    "linkedWidget": "graph-plotter",
+    "remediationLesson": "math-lineaere-funktioner"
+  },
+  {
+    "code": "M-LIGN-FORTEGNSFEJL",
+    "subject": "math",
+    "name": "Fortegnsfejl når et led flyttes til den anden side",
+    "explanation": "Når du fjerner et led på den ene side, skal du gøre præcis det samme på begge sider. Lægger tallet til på venstre side? Så skal du trække det fra på begge sider — leddet skifter fortegn, når det \"flytter over\".",
+    "remediationLesson": "math-ligninger"
+  },
+  {
+    "code": "M-LIGN-GLEMMER-AT-DIVIDERE",
+    "subject": "math",
+    "name": "Glemmer det sidste skridt: at dividere med koefficienten",
+    "explanation": "Når du er nået til fx 4x = 12, er du ikke færdig: 4x betyder 4 gange x. Dividér begge sider med 4 for at finde, hvad ét x er værd.",
+    "remediationLesson": "math-ligninger"
+  },
+  {
+    "code": "M-ALG-BLANDER-LED",
+    "subject": "math",
+    "name": "Lægger led sammen, der ikke er ens",
+    "explanation": "Du kan kun lægge led sammen, der er af samme slags: x'er med x'er og tal med tal. 5x + 3x kan blive til 8x, men 8x − 3 kan ikke reduceres mere — de er ikke samme slags led.",
+    "remediationLesson": "math-ligninger"
+  },
+  {
+    "code": "M-LIGN-KUN-EN-SIDE",
+    "subject": "math",
+    "name": "Udfører operationen på kun den ene side af lighedstegnet",
+    "explanation": "En ligning er som en vægt i balance: gør du noget ved den ene side, skal du gøre præcis det samme ved den anden — ellers tipper balancen, og lighedstegnet holder ikke længere.",
+    "remediationLesson": "math-ligninger"
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "math-grundskole-79",
+    "subject": "math",
+    "title": "Matematik 7.–9. klasse",
+    "stage": "grundskole",
+    "gradeLevel": 8,
+    "description": "Kernestof i tal og algebra: brøker, ligninger og lineære funktioner — med interaktive modeller, genereret træning og mestringstjek.",
+    "modules": [
+      {
+        "id": "broeker",
+        "title": "Brøker",
+        "prereqModules": [],
+        "lessons": ["math-broeker-faelles-naevner"]
+      },
+      {
+        "id": "ligninger",
+        "title": "Ligninger",
+        "prereqModules": ["broeker"],
+        "lessons": ["math-ligninger"]
+      },
+      {
+        "id": "funktioner",
+        "title": "Lineære funktioner",
+        "prereqModules": ["ligninger"],
+        "lessons": ["math-lineaere-funktioner"]
+      },
+      {
+        "id": "geometri",
+        "title": "Geometri",
+        "prereqModules": ["broeker"],
+        "lessons": []
+      },
+      {
+        "id": "statistik",
+        "title": "Statistik & sandsynlighed",
+        "prereqModules": ["funktioner"],
+        "lessons": []
+      }
+    ]
+  }
+]

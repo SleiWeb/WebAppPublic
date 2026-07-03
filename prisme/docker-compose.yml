@@ -1,0 +1,15 @@
+# Lokal udviklingsdatabase. I produktion: managed PostgreSQL i EU-region.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: prisme
+      POSTGRES_PASSWORD: prisme
+      POSTGRES_DB: prisme
+    ports:
+      - "5432:5432"
+    volumes:
+      - prisme-pgdata:/var/lib/postgresql/data
+
+volumes:
+  prisme-pgdata:

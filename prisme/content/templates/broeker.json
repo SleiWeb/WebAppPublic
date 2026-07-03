@@ -1,0 +1,165 @@
+[
+  {
+    "id": "tmpl-broek-find-faelles-naevner",
+    "subject": "math",
+    "title": "Find mindste fælles nævner",
+    "difficulty": 1,
+    "knowledgeComponents": ["MATH.BROEK.FAELLES_NAEVNER"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-BROEK" }
+    ],
+    "variables": {
+      "b": { "pick": [4, 6, 8, 9, 10] },
+      "d": { "pick": [4, 6, 8, 9, 10, 12] },
+      "n": { "expr": "lcm(b, d)" },
+      "prod": { "expr": "b * d" }
+    },
+    "constraints": ["b != d", "gcd(b, d) > 1"],
+    "prompt": {
+      "text": "Find den **mindste fælles nævner** for brøkerne $\\dfrac{1}{{{b}}}$ og $\\dfrac{1}{{{d}}}$."
+    },
+    "answer": {
+      "validator": "numeric",
+      "value": "n",
+      "tolerance": 0
+    },
+    "hints": [
+      { "level": 1, "text": "Hvilke tal går både {{b}} og {{d}} op i?" },
+      { "level": 2, "text": "Skriv tabellerne op: {{b}}-tabellen og {{d}}-tabellen. Det første tal, der står i begge, er den mindste fælles nævner." },
+      { "level": 3, "text": "Prøv tallene {{b}}, 2·{{b}}, 3·{{b}} … hvilket er det første, {{d}} også går op i?" },
+      { "level": 4, "text": "Det mindste tal, både {{b}} og {{d}} går op i, er {{n}}." }
+    ],
+    "distractors": [
+      { "rule": "b * d", "misconception": "M-BROEK-PRODUKT-IKKE-MINDSTE" },
+      { "rule": "b + d", "misconception": "M-BROEK-ADDERER-NAEVNERE" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-BROEK-PRODUKT-IKKE-MINDSTE" },
+        "message": "{{prod}} er en fælles nævner — men ikke den mindste. Findes der et mindre tal, som både {{b}} og {{d}} går op i?" },
+      { "condition": { "matchesMisconception": "M-BROEK-ADDERER-NAEVNERE" },
+        "message": "Du lagde nævnerne sammen. En fælles nævner er et tal, begge nævnere går op i — prøv at kigge på tabellerne for {{b}} og {{d}}." },
+      { "condition": { "correct": true },
+        "message": "Rigtigt! {{n}} er det mindste tal, både {{b}} og {{d}} går op i." }
+    ],
+    "solution": {
+      "steps": [
+        "Skriv multipla af {{b}}: {{b}}, 2·{{b}}, 3·{{b}} …",
+        "Skriv multipla af {{d}}: {{d}}, 2·{{d}}, 3·{{d}} …",
+        "Det første tal, der optræder begge steder, er {{n}}."
+      ]
+    },
+    "teacherNotes": "Træner mindste fælles nævner isoleret, før den bruges i brøkaddition. Distraktoren b·d fanger elever, der altid ganger nævnerne."
+  },
+  {
+    "id": "tmpl-broek-forlaeng",
+    "subject": "math",
+    "title": "Forlæng en brøk til en given nævner",
+    "difficulty": 1,
+    "knowledgeComponents": ["MATH.BROEK.FAELLES_NAEVNER"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-BROEK" }
+    ],
+    "variables": {
+      "a": { "type": "int", "min": 1, "max": 4 },
+      "b": { "pick": [2, 3, 4, 5] },
+      "k": { "pick": [2, 3, 4] },
+      "n": { "expr": "b * k" },
+      "o1": { "expr": "a * k" },
+      "o2": { "expr": "a + (n - b)" },
+      "o3": { "expr": "a * n" }
+    },
+    "constraints": ["a < b"],
+    "prompt": {
+      "text": "Brøken $\\dfrac{{{a}}}{{{b}}}$ skal forlænges, så nævneren bliver {{n}}. Hvad bliver tælleren?"
+    },
+    "answer": {
+      "validator": "mcq",
+      "options": [
+        { "id": "correct", "text": "{{o1}}", "correct": true },
+        { "id": "add-diff", "text": "{{o2}}", "misconception": "M-BROEK-GLEMMER-AT-FORLAENGE" },
+        { "id": "unchanged", "text": "{{a}}", "misconception": "M-BROEK-GLEMMER-AT-FORLAENGE" },
+        { "id": "times-n", "text": "{{o3}}" }
+      ],
+      "shuffle": true
+    },
+    "hints": [
+      { "level": 1, "text": "Hvad er nævneren blevet ganget med for at nå {{n}}?" },
+      { "level": 2, "text": "Når du forlænger en brøk, ganger du tæller og nævner med det samme tal — så er brøken stadig lige stor." },
+      { "level": 3, "text": "{{b}} · {{k}} = {{n}}, så tælleren skal også ganges med {{k}}." },
+      { "level": 4, "text": "Tælleren bliver {{a}} · {{k}} = {{o1}}." }
+    ],
+    "distractors": [],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-BROEK-GLEMMER-AT-FORLAENGE" },
+        "message": "Husk: du ganger tæller og nævner med det samme tal. Nævneren blev ganget med {{k}} — det skal tælleren også." },
+      { "condition": { "correct": true },
+        "message": "Nemlig! $\\dfrac{{{a}}}{{{b}}} = \\dfrac{{{o1}}}{{{n}}}$ — samme brøk, bare i mindre dele." }
+    ],
+    "solution": {
+      "steps": [
+        "Nævneren går fra {{b}} til {{n}}: den er ganget med {{k}}.",
+        "Gang tælleren med det samme: {{a}} · {{k}} = {{o1}}.",
+        "$\\dfrac{{{a}}}{{{b}}} = \\dfrac{{{o1}}}{{{n}}}$."
+      ]
+    },
+    "teacherNotes": "Multiple choice med mønstrede distraktorer: 'læg differencen til' og 'uændret tæller' peger begge på manglende forståelse af forlængning."
+  },
+  {
+    "id": "tmpl-broek-add-ulige-naevner",
+    "subject": "math",
+    "title": "Læg brøker med forskellige nævnere sammen",
+    "difficulty": 2,
+    "knowledgeComponents": ["MATH.BROEK.ADD_ULIGE_NAEVNER", "MATH.BROEK.FAELLES_NAEVNER"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-BROEK" },
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-TAL-ALG", "binding": true }
+    ],
+    "variables": {
+      "a": { "type": "int", "min": 1, "max": 3 },
+      "b": { "pick": [2, 3, 4] },
+      "c": { "type": "int", "min": 1, "max": 4 },
+      "d": { "pick": [3, 4, 5, 6] },
+      "n": { "expr": "lcm(b, d)" },
+      "fa": { "expr": "n / b" },
+      "fc": { "expr": "n / d" },
+      "ta": { "expr": "a * (n / b)" },
+      "tc": { "expr": "c * (n / d)" },
+      "t": { "expr": "a * (n / b) + c * (n / d)" }
+    },
+    "constraints": ["b != d", "a < b", "c < d"],
+    "prompt": {
+      "text": "Udregn $\\dfrac{{{a}}}{{{b}}} + \\dfrac{{{c}}}{{{d}}}$.\n\nSkriv resultatet som en brøk, fx `5/6`."
+    },
+    "answer": {
+      "validator": "expression",
+      "value": "{{t}}/{{n}}",
+      "variables": []
+    },
+    "hints": [
+      { "level": 1, "text": "Kan du lægge delene sammen, når de ikke er lige store? Hvad skal være ens først?" },
+      { "level": 2, "text": "Find en fælles nævner: det mindste tal, både {{b}} og {{d}} går op i, er {{n}}." },
+      { "level": 3, "text": "Forlæng brøkerne: $\\dfrac{{{a}}}{{{b}}} = \\dfrac{{{ta}}}{{{n}}}$ og $\\dfrac{{{c}}}{{{d}}} = \\dfrac{{{tc}}}{{{n}}}$." },
+      { "level": 4, "text": "Læg tællerne sammen: $\\dfrac{{{ta}}}{{{n}}} + \\dfrac{{{tc}}}{{{n}}} = \\dfrac{{{t}}}{{{n}}}$." }
+    ],
+    "distractors": [
+      { "rule": "(a + c) / (b + d)", "misconception": "M-BROEK-ADDERER-NAEVNERE" },
+      { "rule": "(a + c) / n", "misconception": "M-BROEK-GLEMMER-AT-FORLAENGE" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-BROEK-ADDERER-NAEVNERE" },
+        "message": "Du lagde nævnerne sammen — men nævneren fortæller, hvor mange dele helheden er delt i. Find i stedet en fælles nævner, og læg kun tællerne sammen." },
+      { "condition": { "matchesMisconception": "M-BROEK-GLEMMER-AT-FORLAENGE" },
+        "message": "Du fandt den fælles nævner {{n}} — flot! Men husk at forlænge tællerne med, før du lægger dem sammen: $\\dfrac{{{a}}}{{{b}}} = \\dfrac{{{ta}}}{{{n}}}$." },
+      { "condition": { "correct": true },
+        "message": "Flot! Du fandt den fælles nævner og lagde tællerne rigtigt sammen." }
+    ],
+    "solution": {
+      "steps": [
+        "Mindste fælles nævner for {{b}} og {{d}} er {{n}}.",
+        "Forlæng: $\\dfrac{{{a}}}{{{b}}} = \\dfrac{{{ta}}}{{{n}}}$ (gang med {{fa}}) og $\\dfrac{{{c}}}{{{d}}} = \\dfrac{{{tc}}}{{{n}}}$ (gang med {{fc}}).",
+        "Læg tællerne sammen: $\\dfrac{{{ta}}}{{{n}}} + \\dfrac{{{tc}}}{{{n}}} = \\dfrac{{{t}}}{{{n}}}$."
+      ]
+    },
+    "teacherNotes": "Kernetemplaten i modulet. Svaret må gerne være uforkortet — validatoren tjekker værdien. Distraktorerne fanger de to hyppigste fejlmønstre ved brøkaddition."
+  }
+]

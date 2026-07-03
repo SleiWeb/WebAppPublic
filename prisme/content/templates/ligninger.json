@@ -1,0 +1,157 @@
+[
+  {
+    "id": "tmpl-lign-naeste-skridt",
+    "subject": "math",
+    "title": "Vælg det rigtige næste skridt",
+    "difficulty": 1,
+    "knowledgeComponents": ["MATH.LIGN.BALANCE"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-LIGN" }
+    ],
+    "variables": {
+      "a": { "type": "int", "min": 2, "max": 7 },
+      "b": { "type": "int", "min": 2, "max": 9 },
+      "x0": { "type": "int", "min": 2, "max": 9 },
+      "c": { "expr": "a * x0 + b" }
+    },
+    "constraints": [],
+    "prompt": {
+      "text": "Du skal løse ligningen $ {{a}}x + {{b}} = {{c}} $.\n\nHvad er et godt **første skridt**?"
+    },
+    "answer": {
+      "validator": "mcq",
+      "options": [
+        { "id": "subtract-both", "text": "Træk {{b}} fra på begge sider", "correct": true },
+        { "id": "add-both", "text": "Læg {{b}} til på begge sider", "misconception": "M-LIGN-FORTEGNSFEJL" },
+        { "id": "divide-left", "text": "Dividér kun venstre side med {{a}}", "misconception": "M-LIGN-KUN-EN-SIDE" },
+        { "id": "subtract-left", "text": "Træk {{b}} fra — men kun på venstre side", "misconception": "M-LIGN-KUN-EN-SIDE" }
+      ],
+      "shuffle": true
+    },
+    "hints": [
+      { "level": 1, "text": "Målet er at få $x$ til at stå alene. Hvad forstyrrer på venstre side?" },
+      { "level": 2, "text": "En ligning er i balance — det du gør på den ene side, skal du også gøre på den anden." },
+      { "level": 3, "text": "Leddet $+{{b}}$ fjernes ved at trække {{b}} fra. Husk: på **begge** sider." },
+      { "level": 4, "text": "Træk {{b}} fra på begge sider: $ {{a}}x = {{c}} - {{b}}$." }
+    ],
+    "distractors": [],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-LIGN-FORTEGNSFEJL" },
+        "message": "Hvis du lægger {{b}} til, vokser venstre side til $ {{a}}x + 2 \\cdot {{b}}$. Du skal gøre det modsatte af $+{{b}}$: træk {{b}} fra." },
+      { "condition": { "matchesMisconception": "M-LIGN-KUN-EN-SIDE" },
+        "message": "Så tipper balancen! Lighedstegnet holder kun, hvis du gør præcis det samme på begge sider." },
+      { "condition": { "correct": true },
+        "message": "Rigtigt! Samme operation på begge sider holder ligningen i balance." }
+    ],
+    "solution": {
+      "steps": [
+        "Vi vil have $x$ alene, så leddet $+{{b}}$ skal væk.",
+        "Det modsatte af at lægge {{b}} til er at trække {{b}} fra.",
+        "Balanceprincippet: træk {{b}} fra på **begge** sider."
+      ]
+    },
+    "teacherNotes": "Begrebs-tjek uden udregning: afslører om balanceprincippet sidder fast, før eleverne regner løs."
+  },
+  {
+    "id": "tmpl-lign-loes-x",
+    "subject": "math",
+    "title": "Løs ligningen ax + b = c",
+    "difficulty": 2,
+    "knowledgeComponents": ["MATH.LIGN.LOES_AX_B", "MATH.LIGN.BALANCE"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-LIGN" },
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-TAL-ALG", "binding": true }
+    ],
+    "variables": {
+      "x0": { "type": "int", "min": 2, "max": 9 },
+      "a": { "type": "int", "min": 2, "max": 6 },
+      "b": { "type": "int", "min": 1, "max": 9 },
+      "c": { "expr": "a * x0 + b" },
+      "cb": { "expr": "c - b" }
+    },
+    "constraints": [],
+    "prompt": {
+      "text": "Løs ligningen $ {{a}}x + {{b}} = {{c}} $.\n\nHvad er $x$?"
+    },
+    "answer": {
+      "validator": "numeric",
+      "value": "x0",
+      "tolerance": 0.001
+    },
+    "hints": [
+      { "level": 1, "text": "Hvad skal der ske, for at $x$ står helt alene på venstre side?" },
+      { "level": 2, "text": "Balanceprincippet: gør det samme på begge sider — først fjernes $+{{b}}$, så koefficienten {{a}}." },
+      { "level": 3, "text": "Træk {{b}} fra på begge sider: $ {{a}}x = {{cb}}$." },
+      { "level": 4, "text": "Dividér begge sider med {{a}}: $x = \\dfrac{{{cb}}}{{{a}}} = {{x0}}$." }
+    ],
+    "distractors": [
+      { "rule": "(c + b) / a", "misconception": "M-LIGN-FORTEGNSFEJL" },
+      { "rule": "c - b", "misconception": "M-LIGN-GLEMMER-AT-DIVIDERE" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-LIGN-FORTEGNSFEJL" },
+        "message": "Det ligner en fortegnsfejl: $+{{b}}$ fjernes ved at **trække** {{b}} fra på begge sider — ikke lægge til. Så står der $ {{a}}x = {{cb}}$." },
+      { "condition": { "matchesMisconception": "M-LIGN-GLEMMER-AT-DIVIDERE" },
+        "message": "Godt på vej — $ {{a}}x = {{cb}}$ er rigtigt! Men $ {{a}}x$ betyder {{a}} gange $x$, så du mangler at dividere begge sider med {{a}}." },
+      { "condition": { "correct": true },
+        "message": "Flot! Tjek selv: $ {{a}} \\cdot {{x0}} + {{b}} = {{c}}$ ✓" }
+    ],
+    "solution": {
+      "steps": [
+        "Træk {{b}} fra på begge sider: $ {{a}}x + {{b}} - {{b}} = {{c}} - {{b}}$, altså $ {{a}}x = {{cb}}$.",
+        "Dividér begge sider med {{a}}: $x = \\dfrac{{{cb}}}{{{a}}}$.",
+        "$x = {{x0}}$. Tjek: $ {{a}} \\cdot {{x0}} + {{b}} = {{c}}$ ✓"
+      ]
+    },
+    "teacherNotes": "Kernetemplaten. De to distraktorer dækker de hyppigste fejl: fortegnsfejl ved flytning af led og manglende division til sidst."
+  },
+  {
+    "id": "tmpl-lign-reducer",
+    "subject": "math",
+    "title": "Reducér udtrykket",
+    "difficulty": 2,
+    "knowledgeComponents": ["MATH.ALG.REDUKTION"],
+    "curriculumLinks": [
+      { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "code": "MA-9-TAL-ALG", "binding": true }
+    ],
+    "variables": {
+      "p": { "type": "int", "min": 2, "max": 6 },
+      "q": { "type": "int", "min": 2, "max": 6 },
+      "r": { "type": "int", "min": 1, "max": 9 },
+      "s": { "expr": "p + q" }
+    },
+    "constraints": [],
+    "prompt": {
+      "text": "Reducér udtrykket $ {{p}}x + {{q}}x - {{r}} $.\n\nSkriv dit svar som et udtryk i $x$, fx `8x - 3`."
+    },
+    "answer": {
+      "validator": "expression",
+      "value": "{{s}}*x - {{r}}",
+      "variables": ["x"]
+    },
+    "hints": [
+      { "level": 1, "text": "Hvilke led er af samme slags? Hvilke kan lægges sammen?" },
+      { "level": 2, "text": "x-led kan lægges sammen med x-led. Tal uden x er en anden slags led." },
+      { "level": 3, "text": "$ {{p}}x + {{q}}x = {{s}}x$. Hvad så med $-{{r}}$?" },
+      { "level": 4, "text": "$-{{r}}$ har ikke noget x og kan ikke slås sammen med {{s}}x. Svaret er $ {{s}}x - {{r}}$." }
+    ],
+    "distractors": [
+      { "rule": "(p + q - r) * x", "misconception": "M-ALG-BLANDER-LED" },
+      { "rule": "p + q - r", "misconception": "M-ALG-BLANDER-LED" }
+    ],
+    "feedbackRules": [
+      { "condition": { "matchesMisconception": "M-ALG-BLANDER-LED" },
+        "message": "Du blandede leddene sammen. Kun led af samme slags kan lægges sammen: $ {{p}}x + {{q}}x = {{s}}x$, men $-{{r}}$ har ikke noget x og skal blive stående." },
+      { "condition": { "correct": true },
+        "message": "Rigtigt! x'erne samlet til {{s}}x, og tallet for sig." }
+    ],
+    "solution": {
+      "steps": [
+        "Saml x-leddene: $ {{p}}x + {{q}}x = {{s}}x$.",
+        "$-{{r}}$ er ikke et x-led og står for sig selv.",
+        "Reduceret: $ {{s}}x - {{r}}$."
+      ]
+    },
+    "teacherNotes": "Expression-validator: alle ækvivalente former accepteres (fx '-{{r}} + {{s}}x'). Distraktorerne fanger sammenblanding af led."
+  }
+]

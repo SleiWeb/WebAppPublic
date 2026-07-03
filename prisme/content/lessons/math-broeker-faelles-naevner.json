@@ -1,0 +1,81 @@
+{
+  "id": "math-broeker-faelles-naevner",
+  "subject": "math",
+  "course": "math-grundskole-79",
+  "module": "broeker",
+  "title": "Brøker: Fælles nævner",
+  "estMinutes": 15,
+  "learningGoals": [
+    "Jeg kan finde den mindste fælles nævner for to brøker",
+    "Jeg kan lægge brøker med forskellige nævnere sammen"
+  ],
+  "curriculumLinks": [
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "goalType": "kompetencemaal", "code": "MA-9-TAL-ALG", "binding": true },
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "goalType": "faerdigheds_videns", "code": "MA-9-BROEK", "binding": false }
+  ],
+  "knowledgeComponents": ["MATH.BROEK.FAELLES_NAEVNER", "MATH.BROEK.ADD_ULIGE_NAEVNER"],
+  "teacherNotes": "Den hyppigste fejl er at addere nævnerne (M-BROEK-ADDERER-NAEVNERE). Lad eleverne bruge brøkstangen, til de kan SE hvorfor delene skal være lige store, før formalismen introduceres.",
+  "blocks": [
+    {
+      "type": "text",
+      "body": "En brøk er en **længde**: $\\dfrac{1}{2}$ er halvdelen af stangen, $\\dfrac{1}{3}$ er en tredjedel.\n\nMen kan man lægge en halv og en tredjedel sammen, når delene ikke er lige store? Prøv nedenfor 👇",
+      "readingLevel": "enkel"
+    },
+    {
+      "type": "widget",
+      "widgetType": "fraction-bar",
+      "params": {
+        "n": { "min": 2, "max": 24, "default": 2, "step": 1, "label": "Antal dele" }
+      },
+      "render": {
+        "fractions": [
+          { "num": 1, "den": 2 },
+          { "num": 1, "den": 3 }
+        ],
+        "showSum": true
+      },
+      "interactions": ["dragSlider:n"],
+      "readout": ["equivalents", "sum"],
+      "emits": ["n"],
+      "prompt": "Træk i skyderen og del stangen i flere dele. Ved hvilket antal dele passer BÅDE $\\frac{1}{2}$ og $\\frac{1}{3}$ præcis med stregerne?"
+    },
+    {
+      "type": "text",
+      "body": "Du fandt det: ved **6 dele** passer begge brøker! $\\dfrac{1}{2} = \\dfrac{3}{6}$ og $\\dfrac{1}{3} = \\dfrac{2}{6}$.\n\n6 kaldes en **fælles nævner** — et tal, begge nævnere går op i. Nu er delene lige store, og vi kan lægge dem sammen: $\\dfrac{3}{6} + \\dfrac{2}{6} = \\dfrac{5}{6}$."
+    },
+    {
+      "type": "workedExample",
+      "title": "Sådan gør du: $\\dfrac{1}{4} + \\dfrac{2}{3}$",
+      "steps": [
+        "**Find fælles nævner.** Det mindste tal, både 4 og 3 går op i, er 12.",
+        "**Forlæng brøkerne.** $\\dfrac{1}{4} = \\dfrac{3}{12}$ (gang med 3) og $\\dfrac{2}{3} = \\dfrac{8}{12}$ (gang med 4).",
+        "**Læg tællerne sammen.** $\\dfrac{3}{12} + \\dfrac{8}{12} = \\dfrac{11}{12}$. Nævneren er stadig 12 — den fortæller kun, hvor store delene er."
+      ],
+      "fade": true
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-broek-find-faelles-naevner",
+      "count": 2
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-broek-forlaeng",
+      "count": 2
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-broek-add-ulige-naevner",
+      "count": 3
+    },
+    {
+      "type": "checkpoint",
+      "templateIds": [
+        "tmpl-broek-find-faelles-naevner",
+        "tmpl-broek-forlaeng",
+        "tmpl-broek-add-ulige-naevner"
+      ],
+      "passRule": { "correctOf": 3, "need": 2 }
+    }
+  ]
+}

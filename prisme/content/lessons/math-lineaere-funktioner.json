@@ -1,0 +1,77 @@
+{
+  "id": "math-lineaere-funktioner",
+  "subject": "math",
+  "course": "math-grundskole-79",
+  "module": "funktioner",
+  "title": "Lineære funktioner: y = ax + b",
+  "estMinutes": 15,
+  "learningGoals": [
+    "Jeg kan forklare, hvad a og b betyder i y = ax + b",
+    "Jeg kan beregne y ud fra forskriften",
+    "Jeg kan bestemme hældningstallet ud fra to punkter"
+  ],
+  "curriculumLinks": [
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "tal_og_algebra", "goalType": "faerdigheds_videns", "code": "MA-9-FUNK", "binding": false },
+    { "framework": "faelles_maal", "subject": "math", "competenceArea": "modellering", "goalType": "kompetencemaal", "code": "MA-9-MODEL", "binding": true }
+  ],
+  "knowledgeComponents": ["MATH.LIN.BEREGN_Y", "MATH.LIN.HAELDNING", "MATH.LIN.SKAERING"],
+  "teacherNotes": "Lad eleverne lege med skyderne, FØR ordene hældningstal og skæring introduceres. Typiske fejl: bytter a og b's roller, og regner hældning som Δx/Δy.",
+  "blocks": [
+    {
+      "type": "text",
+      "body": "En **lineær funktion** er en lige linje: $y = ax + b$.\n\nMen hvad gør $a$, og hvad gør $b$ ved linjen? Find ud af det selv 👇",
+      "readingLevel": "enkel"
+    },
+    {
+      "type": "widget",
+      "widgetType": "graph-plotter",
+      "params": {
+        "a": { "min": -3, "max": 3, "default": 1, "step": 0.5, "label": "a" },
+        "b": { "min": -5, "max": 5, "default": 0, "step": 1, "label": "b" }
+      },
+      "render": { "expr": "a*x + b", "domain": [-6, 6], "range": [-8, 8] },
+      "interactions": ["dragSlider:a", "dragSlider:b"],
+      "readout": ["slope", "intercept"],
+      "emits": ["a", "b"],
+      "prompt": "Træk i skyderne. Hvad sker der med linjen, når du ændrer $a$? Og når du ændrer $b$? Kan du få linjen til at pege nedad?"
+    },
+    {
+      "type": "text",
+      "body": "Du så det selv:\n\n- $a$ er **hældningstallet** — hvor meget linjen stiger, hver gang $x$ vokser med 1. Negativt $a$ = linjen falder.\n- $b$ er **skæringen med y-aksen** — dér hvor linjen starter, når $x = 0$."
+    },
+    {
+      "type": "workedExample",
+      "title": "Sådan gør du: find y for x = 4, når y = 2x + 3",
+      "steps": [
+        "**Sæt tallet ind** på x's plads: $y = 2 \\cdot 4 + 3$.",
+        "**Gang først:** $2 \\cdot 4 = 8$.",
+        "**Læg til:** $y = 8 + 3 = 11$. Punktet $(4, 11)$ ligger på linjen."
+      ],
+      "fade": true
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lin-beregn-y",
+      "count": 3
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lin-aflaes-b",
+      "count": 2
+    },
+    {
+      "type": "exerciseRef",
+      "templateId": "tmpl-lin-haeldning",
+      "count": 3
+    },
+    {
+      "type": "checkpoint",
+      "templateIds": [
+        "tmpl-lin-beregn-y",
+        "tmpl-lin-aflaes-b",
+        "tmpl-lin-haeldning"
+      ],
+      "passRule": { "correctOf": 3, "need": 2 }
+    }
+  ]
+}

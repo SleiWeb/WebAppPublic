@@ -1,0 +1,48 @@
+# CI for Prisme-platformen (doc 06 §6.12): tests + migrationer + seed + build.
+name: Prisme CI
+
+on:
+  push:
+    paths:
+      - "prisme/**"
+      - ".github/workflows/prisme-ci.yml"
+  pull_request:
+    paths:
+      - "prisme/**"
+      - ".github/workflows/prisme-ci.yml"
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prisme
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: prisme
+          POSTGRES_PASSWORD: prisme
+          POSTGRES_DB: prisme
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U prisme"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://prisme:prisme@localhost:5432/prisme
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: prisme/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - run: npm run db:migrate
+      - run: npm run db:seed
+      - run: npm run build
