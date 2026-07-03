@@ -384,6 +384,17 @@ export default function HomePage() {
         <div className="lpSubtitle">Trin for trin veje til mestring</div>
       </div>
 
+      <Link className="lpFagBanner" to="/fysik">
+        <div className="lpFagBannerIkon" aria-hidden="true">⚛️</div>
+        <div>
+          <div className="lpFagBannerTitel">Nyt fag: Fysik</div>
+          <div className="lpFagBannerSub">
+            Hele pensum fra 7. klasse til Fysik A — teori, formelsamling og auto-rettet træning
+          </div>
+        </div>
+        <div className="lpFagBannerPil" aria-hidden="true">→</div>
+      </Link>
+
       {domains.map((d) => (
         <LearningRail key={d} domain={d} />
       ))}
